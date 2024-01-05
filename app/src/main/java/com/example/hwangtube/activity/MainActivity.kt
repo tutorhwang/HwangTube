@@ -5,48 +5,60 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.bumptech.glide.Glide
 import com.example.hwangtube.R
+import com.example.hwangtube.adapter.VideoListAdapter
 import com.example.hwangtube.data.Video
 import com.example.hwangtube.data.VideoList
-
-private const val TAG = "MainActivity.LifeCycle"
+import com.example.hwangtube.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private val adapter by lazy {
+        VideoListAdapter(VideoList.list) { video ->
+            val intent = Intent(applicationContext, DetailActivity::class.java).apply {
+                putExtra(EXTRA_VIDEO, video)
+            }
+            startActivity(intent)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        Log.i(TAG, "onCreate()")
-        findViewById<Toolbar>(R.id.toolbar).apply {
-            setSupportActionBar(this)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        with(binding) {
+            setSupportActionBar(toolbar)
+            recyclerView.adapter = adapter
         }
-        loadVideo(R.id.video_1, VideoList.get(0))
-        loadVideo(R.id.video_2, VideoList.get(1))
-        loadVideo(R.id.video_3, VideoList.get(2))
-        loadVideo(R.id.video_4, VideoList.get(3))
-        loadVideo(R.id.video_5, VideoList.get(4))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_add -> {
+                adapter.addItem(
+                    Video(
+                        "Tobi Speakerfan", //channel title
+                        "Detalles insanos de Skibidi Toilet 69  #skibiditoilet", // title
+                        "https://i.ytimg.com/vi/rYzH1214ElA/mqdefault.jpg", //thumbnails.medium
+                        "Spoiler de Skibidi Toilet 69 claro que si ............................................................................................... #skibiditoilet 69 parte 2 #memes ..." //description
+                    )
+                )
+                binding.recyclerView.scrollToPosition(0)
+                true
+            }
+
             R.id.action_settings -> {
                 val intent = Intent(this, SettingActivity::class.java)
                 startActivity(intent)
@@ -67,42 +79,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadVideo(layoutId: Int, video: Video) {
-        findViewById<ViewGroup>(layoutId)?.apply {
-            with(video) {
-                findViewById<ImageView>(R.id.main_image)?.also { imageThumbnail ->
-                    Glide.with(imageThumbnail).load(thumbnail).into(imageThumbnail)
-                    imageThumbnail.setOnClickListener {
-                        val intent = Intent(context, DetailActivity::class.java).apply {
-                            putExtra(EXTRA_VIDEO, this@with)
-                        }
-                        startActivity(intent)
-                    }
-                }
-
-                findViewById<TextView>(R.id.channel_name).apply {
-                    text = channelTitle
-                }
-
-                findViewById<TextView>(R.id.title).apply {
-                    text = title
-                }
-
-                findViewById<ImageView>(R.id.logo).apply {
-                    setImageResource(R.drawable.haelin)
-                }
-            }
-        }
-    }
 
     private fun showDialog() {
-        val dialog = AlertDialog.Builder(this)
+        AlertDialog.Builder(this)
             .setTitle("Dialog Title")
             .setMessage("This is a dialog.")
             .setPositiveButton("OK", null)
-            .create()
-
-        dialog.show()
+            .create().show()
     }
 
 

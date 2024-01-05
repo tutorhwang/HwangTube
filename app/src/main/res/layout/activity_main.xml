@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tool="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,6 +22,7 @@
                 android:id="@+id/toolbar_logo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:importantForAccessibility="no"
                 android:src="@drawable/youtube_logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -31,12 +32,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="YOUTUBE"
+                android:text="@string/youtube"
                 android:textSize="23dp"
                 android:textStyle="bold|italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/toolbar_logo"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpUsage" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
@@ -55,59 +57,39 @@
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="음악" />
+            android:text="@string/music" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_realtime"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="실시간" />
+            android:text="@string/live" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_mix"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="믹스" />
+            android:text="@string/mix" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_nature"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="자연" />
+            android:text="@string/nature" />
 
     </com.google.android.material.chip.ChipGroup>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chip_group">
+        app:layout_constraintTop_toBottomOf="@id/chip_group" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <include
-                android:id="@+id/video_1"
-                layout="@layout/item_layout" />
-            <include
-                android:id="@+id/video_2"
-                layout="@layout/item_layout" />
-            <include
-                android:id="@+id/video_3"
-                layout="@layout/item_layout" />
-            <include
-                android:id="@+id/video_4"
-                layout="@layout/item_layout" />
-            <include
-                android:id="@+id/video_5"
-                layout="@layout/item_layout" />
-        </LinearLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

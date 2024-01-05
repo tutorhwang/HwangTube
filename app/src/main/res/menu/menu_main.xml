@@ -3,20 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.hwangtube.activity.MainActivity">
     <item
+        android:id="@+id/action_add"
+        android:orderInCategory="1"
+        android:title="@string/action_add"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="3"
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_dialog"
-        android:orderInCategory="100"
+        android:orderInCategory="4"
         android:title="@string/action_dialog"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_call"
-        android:orderInCategory="100"
+        android:orderInCategory="5"
         android:title="@string/action_call"
         app:showAsAction="never" />
 </menu>
