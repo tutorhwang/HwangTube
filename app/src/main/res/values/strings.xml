@@ -15,4 +15,7 @@
     <string name="live">Live</string>
     <string name="mix">Mix</string>
     <string name="nature">Nature</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_settings">Settings</string>
 </resources>
