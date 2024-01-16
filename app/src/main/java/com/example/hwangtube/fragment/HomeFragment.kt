@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.hwangtube.activity.DetailActivity
 import com.example.hwangtube.activity.EXTRA_VIDEO
 import com.example.hwangtube.adapter.VideoListAdapter
-import com.example.hwangtube.data.Video
+import com.example.hwangtube.data.ListItem
 import com.example.hwangtube.data.VideoList
 import com.example.hwangtube.databinding.FragmentHomeBinding
 
@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
             chipInsert.setOnClickListener {
                 VideoList.list.add(
                     0,
-                    Video(
+                    ListItem.VideoItem(
                         "Bùm", //channel title
                         "Phân Tích Bí Ẩn Skibidi Toilet 69 Tập Full", // title
                         "https://i.ytimg.com/vi/dyuFvdd1Le4/mqdefault.jpg", //thumbnails.medium

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.hwangtube.data.Video
+import com.example.hwangtube.data.ListItem
 import com.example.hwangtube.databinding.ActivityDetailBinding
 
 const val EXTRA_VIDEO = "EXTRA_VIDEO"
@@ -21,7 +21,7 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra(EXTRA_VIDEO, Video::class.java)
+            intent.getParcelableExtra(EXTRA_VIDEO, ListItem.VideoItem::class.java)
         } else {
             intent.getParcelableExtra(EXTRA_VIDEO)
         }?.also {
