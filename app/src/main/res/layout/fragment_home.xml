@@ -15,18 +15,18 @@
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip_insert"
+            android:id="@+id/chip_korea"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/insert" />
+            android:text="한국" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip_delete"
+            android:id="@+id/chip_us"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/delete" />
+            android:text="미국" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_mix"
