@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.example.hwangtube.HomeViewModel
 import com.example.hwangtube.activity.DetailActivity
 import com.example.hwangtube.activity.EXTRA_VIDEO
@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
     }
-    private val viewModel by activityViewModels<HomeViewModel>()
+    private val viewModel by viewModels<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
