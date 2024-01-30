@@ -14,3 +14,14 @@ data class VideoModel(
     @SerializedName("pageInfo")
     val pageInfo: PageInfo
 )
+
+fun List<Item>.toVideoItem(): List<ListItem.VideoItem> {
+    return this.map {
+        ListItem.VideoItem(
+            channelTitle = it.snippet.channelTitle,
+            title = it.snippet.title,
+            thumbnail = it.snippet.thumbnails.high.url,
+            description = it.snippet.description
+        )
+    }
+}
