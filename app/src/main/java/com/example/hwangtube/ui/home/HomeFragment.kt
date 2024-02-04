@@ -10,18 +10,21 @@ import androidx.fragment.app.viewModels
 import com.example.hwangtube.ui.detail.DetailActivity
 import com.example.hwangtube.ui.detail.EXTRA_VIDEO
 import com.example.hwangtube.databinding.FragmentHomeBinding
+import com.example.hwangtube.model.ListItem
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val adapter by lazy {
-        VideoListAdapter { video ->
+        VideoListAdapter(onClick = fun(video: ListItem) {
             val intent = Intent(activity, DetailActivity::class.java).apply {
                 putExtra(EXTRA_VIDEO, video)
             }
             startActivity(intent)
-        }
+        }, onFavoriteClick = fun(video: ListItem) {
+            // TODO: Add/Remove Favorite
+        })
     }
     private val viewModel by viewModels<HomeViewModel>()
 
