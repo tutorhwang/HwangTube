@@ -5,42 +5,34 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import com.example.hwangtube.databinding.FragmentSettingsBinding
+import com.example.hwangtube.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {
-    private var _binding: FragmentSettingsBinding? = null
+    private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
+    private val adapter by lazy {
+        FavoriteListAdapter { video ->
+            // TODO: Clear favorite item
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         super.onCreate(savedInstanceState)
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        binding.pickButton.setOnClickListener { openGalleryForImage() }
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.recyclerView.adapter = adapter
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private val pickMedia =
-        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-            uri?.also { imageUri ->
-                binding.picture.setImageURI(imageUri)
-                requireActivity().contentResolver.takePersistableUriPermission(
-                    imageUri,
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-            }
-        }
-
-    private fun openGalleryForImage() {
-        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
 }
