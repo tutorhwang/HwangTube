@@ -3,7 +3,6 @@ package com.example.hwangtube.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hwangtube.R
-import com.example.hwangtube.ui.adapter.ViewPagerAdapter
 import com.example.hwangtube.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 

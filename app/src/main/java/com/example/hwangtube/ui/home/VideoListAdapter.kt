@@ -1,4 +1,4 @@
-package com.example.hwangtube.ui.adapter
+package com.example.hwangtube.ui.home
 
 import android.util.Log
 import android.view.LayoutInflater

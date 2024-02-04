@@ -1,4 +1,4 @@
-package com.example.hwangtube.ui.adapter
+package com.example.hwangtube.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
