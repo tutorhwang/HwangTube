@@ -1,4 +1,4 @@
-package com.example.hwangtube.data
+package com.example.hwangtube.model
 
 import com.google.gson.annotations.SerializedName
 

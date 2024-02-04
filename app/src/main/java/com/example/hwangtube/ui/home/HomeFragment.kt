@@ -1,4 +1,4 @@
-package com.example.hwangtube.fragment
+package com.example.hwangtube.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.hwangtube.HomeViewModel
-import com.example.hwangtube.activity.DetailActivity
-import com.example.hwangtube.activity.EXTRA_VIDEO
-import com.example.hwangtube.adapter.VideoListAdapter
+import com.example.hwangtube.ui.detail.DetailActivity
+import com.example.hwangtube.ui.detail.EXTRA_VIDEO
+import com.example.hwangtube.ui.adapter.VideoListAdapter
 import com.example.hwangtube.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {

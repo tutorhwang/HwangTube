@@ -1,9 +1,9 @@
-package com.example.hwangtube.data
+package com.example.hwangtube.model
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Standard(
+data class High(
     @SerializedName("height")
     val height: Int,
     @SerializedName("url")

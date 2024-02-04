@@ -1,4 +1,4 @@
-package com.example.hwangtube.adapter
+package com.example.hwangtube.ui.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hwangtube.R
-import com.example.hwangtube.data.ListItem
+import com.example.hwangtube.model.ListItem
 import com.example.hwangtube.databinding.ItemLayout2Binding
 import com.example.hwangtube.databinding.ItemLayoutBinding
 

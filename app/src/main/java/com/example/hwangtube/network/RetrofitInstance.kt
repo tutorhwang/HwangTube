@@ -1,4 +1,4 @@
-package com.example.hwangtube.api
+package com.example.hwangtube.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

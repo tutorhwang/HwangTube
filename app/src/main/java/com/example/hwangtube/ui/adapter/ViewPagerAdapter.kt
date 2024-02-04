@@ -1,17 +1,15 @@
-package com.example.hwangtube.adapter
+package com.example.hwangtube.ui.adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.hwangtube.fragment.HomeFragment
-import com.example.hwangtube.fragment.SearchFragment
-import com.example.hwangtube.fragment.SettingFragment
+import com.example.hwangtube.ui.home.HomeFragment
+import com.example.hwangtube.ui.favorite.FavoriteFragment
 
 class ViewPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
-    override fun getItemCount() = 3
+    override fun getItemCount() = 2
     override fun createFragment(position: Int) = when (position) {
         0 -> HomeFragment()
-        1 -> SearchFragment()
-        2 -> SettingFragment()
+        1 -> FavoriteFragment()
         else -> throw IllegalStateException("Invalid position: $position")
     }
 }

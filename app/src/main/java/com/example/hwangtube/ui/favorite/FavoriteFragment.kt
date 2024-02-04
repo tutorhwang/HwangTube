@@ -1,4 +1,4 @@
-package com.example.hwangtube.fragment
+package com.example.hwangtube.ui.favorite
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.hwangtube.databinding.FragmentSettingsBinding
 
-class SettingFragment : Fragment() {
+class FavoriteFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
