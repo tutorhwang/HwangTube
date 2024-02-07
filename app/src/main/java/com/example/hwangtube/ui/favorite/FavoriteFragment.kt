@@ -29,6 +29,12 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.adapter = adapter
+        // TODO: Connect favorite item
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // TODO: Reload favorite item
     }
 
     override fun onDestroyView() {

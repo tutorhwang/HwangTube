@@ -22,8 +22,8 @@ class HomeFragment : Fragment() {
                 putExtra(EXTRA_VIDEO, video)
             }
             startActivity(intent)
-        }, onFavoriteClick = fun(video: ListItem) {
-            // TODO: Add/Remove Favorite
+        }, onFavoriteClick = fun(video: ListItem.VideoItem) {
+            // TODO: Add or Remove favirote item
         })
     }
     private val viewModel by viewModels<HomeViewModel>()

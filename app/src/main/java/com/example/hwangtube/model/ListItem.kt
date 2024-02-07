@@ -13,6 +13,7 @@ sealed class ListItem : Parcelable {
         val title: String,
         val thumbnail: String,
         val description: String,
-        val isFavorite: Boolean = false
-    ) : ListItem()
+    ) : ListItem() {
+        var isFavorite: Boolean = false
+    }
 }

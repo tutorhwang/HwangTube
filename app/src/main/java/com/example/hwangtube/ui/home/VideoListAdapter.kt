@@ -19,7 +19,7 @@ import com.example.hwangtube.databinding.ItemLayoutBinding
 
 class VideoListAdapter(
     private val onClick: (ListItem) -> Unit,
-    private val onFavoriteClick: (ListItem) -> Unit
+    private val onFavoriteClick: (ListItem.VideoItem) -> Unit
 ) :
     ListAdapter<ListItem, RecyclerView.ViewHolder>(object : DiffUtil.ItemCallback<ListItem>() {
         override fun areItemsTheSame(oldItem: ListItem, newItem: ListItem): Boolean {
@@ -100,7 +100,8 @@ class VideoListAdapter(
                 channelLogoView.setImageResource(R.drawable.haelin)
                 favoriteButton.setFavorite(isFavorite)
                 favoriteButton.setOnClickListener {
-                    (it as ImageView).setFavorite(!isFavorite)
+                    isFavorite = !isFavorite
+                    (it as ImageView).setFavorite(isFavorite)
                     it.startFavoriteAnimation(isFavorite)
                     onFavoriteClick(this)
                 }
