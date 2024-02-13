@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.hwangtube.ui.detail.DetailActivity
 import com.example.hwangtube.ui.detail.EXTRA_VIDEO
 import com.example.hwangtube.databinding.FragmentHomeBinding
 import com.example.hwangtube.model.ListItem
+import com.example.hwangtube.ui.MainViewModel
 
 class HomeFragment : Fragment() {
 
@@ -23,10 +25,15 @@ class HomeFragment : Fragment() {
             }
             startActivity(intent)
         }, onFavoriteClick = fun(video: ListItem.VideoItem) {
-            // TODO: Add or Remove favirote item
+            if(video.isFavorite) {
+                sharedViewModel.addFavoriteItem(video)
+            } else  {
+                sharedViewModel.removeFavoriteItem(video)
+            }
         })
     }
     private val viewModel by viewModels<HomeViewModel>()
+    private val sharedViewModel by activityViewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
