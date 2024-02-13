@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hwangtube.databinding.FavoriteItemLayoutBinding
-import com.example.hwangtube.model.ListItem
+import com.example.hwangtube.data.model.ListItem
 import com.example.hwangtube.databinding.ItemLayout2Binding
 
 class FavoriteListAdapter(private val onClick: (ListItem.VideoItem) -> Unit) :

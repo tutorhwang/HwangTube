@@ -1,6 +1,6 @@
-package com.example.hwangtube.network
+package com.example.hwangtube.data.api
 
-import com.example.hwangtube.model.VideoModel
+import com.example.hwangtube.data.model.VideoModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 

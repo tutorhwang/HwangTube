@@ -1,6 +1,6 @@
-package com.example.hwangtube.repository
+package com.example.hwangtube.data.repository
 
-import com.example.hwangtube.network.RetrofitInstance
+import com.example.hwangtube.data.api.RetrofitInstance
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

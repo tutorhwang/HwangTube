@@ -1,4 +1,4 @@
-package com.example.hwangtube.model
+package com.example.hwangtube.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
