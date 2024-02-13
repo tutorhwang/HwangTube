@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.example.hwangtube.databinding.FragmentRecommendBinding
 import com.example.hwangtube.ui.MainViewModel
 
@@ -13,6 +14,8 @@ class RecommendFragment : Fragment() {
     private var _binding: FragmentRecommendBinding? = null
     private val binding get() = _binding!!
     private val sharedViewModel by activityViewModels<MainViewModel>()
+    private val viewModel by viewModels<RecommendViewModel>()
+    private val adapter by lazy { RecommendListAdapter() }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,7 +27,10 @@ class RecommendFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerView.adapter = null
+        viewModel.fetchRecommendChanelList()
+        viewModel.recommendChannelList.observe(viewLifecycleOwner){
+            adapter.submitList(it)
+        }
 
     }
 

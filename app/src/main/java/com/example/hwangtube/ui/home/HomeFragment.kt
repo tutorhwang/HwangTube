@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import com.example.hwangtube.ui.detail.DetailActivity
 import com.example.hwangtube.ui.detail.EXTRA_VIDEO
 import com.example.hwangtube.databinding.FragmentHomeBinding
-import com.example.hwangtube.data.model.ListItem
+import com.example.hwangtube.data.model.youtube.ListItem
 import com.example.hwangtube.ui.MainViewModel
 
 class HomeFragment : Fragment() {

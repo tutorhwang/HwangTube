@@ -1,4 +1,4 @@
-package com.example.hwangtube.ui.favorite
+package com.example.hwangtube.ui.recommend
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,23 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.hwangtube.databinding.FavoriteItemLayoutBinding
-import com.example.hwangtube.data.model.youtube.ListItem
 
-class FavoriteListAdapter(private val onClick: (ListItem.VideoItem) -> Unit) :
-    ListAdapter<ListItem.VideoItem, FavoriteListAdapter.VideoItemHolder>(object :
-        DiffUtil.ItemCallback<ListItem.VideoItem>() {
+class RecommendListAdapter() :
+    ListAdapter<String, RecommendListAdapter.VideoItemHolder>(object :
+        DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(
-            oldItem: ListItem.VideoItem,
-            newItem: ListItem.VideoItem
+            oldItem: String,
+            newItem: String
         ): Boolean {
-            return oldItem.title == newItem.title
+            return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: ListItem.VideoItem,
-            newItem: ListItem.VideoItem
+            oldItem: String,
+            newItem: String
         ): Boolean {
             return oldItem == newItem
         }
@@ -45,16 +43,9 @@ class FavoriteListAdapter(private val onClick: (ListItem.VideoItem) -> Unit) :
     inner class VideoItemHolder(binding: FavoriteItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val channelNameView = binding.channelName
-        private val titleView = binding.title
-        private val thumbnailView = binding.mainImage
 
-        fun bind(video: ListItem.VideoItem) {
-            with(video) {
-                Glide.with(itemView).load(thumbnail).into(thumbnailView)
-                thumbnailView.setOnClickListener { onClick(this) }
-                titleView.text = title
-                channelNameView.text = channelTitle
-            }
+        fun bind(video: String) {
+            channelNameView.text = video
         }
     }
 }

@@ -3,7 +3,7 @@ package com.example.hwangtube.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.hwangtube.data.model.ListItem
+import com.example.hwangtube.data.model.youtube.ListItem
 
 class MainViewModel : ViewModel() {
     private val _favoriteList : MutableLiveData<List<ListItem.VideoItem>> = MutableLiveData()

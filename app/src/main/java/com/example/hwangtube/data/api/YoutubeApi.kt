@@ -1,6 +1,6 @@
 package com.example.hwangtube.data.api
 
-import com.example.hwangtube.data.model.VideoModel
+import com.example.hwangtube.data.model.youtube.VideoModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -8,7 +8,7 @@ private const val API_MAX_RESULT = 20
 private const val API_REGION = "US"
 
 private const val youtubeApiKey = "AIzaSyCwSh2ytvLEZxrFRAzR3mna1aeGJqmpbhg"
-interface YoutubeAPI {
+interface YoutubeApi {
     @GET("videos")
     suspend fun getTrendingVideos(
         @Query("part") part: String = "snippet",

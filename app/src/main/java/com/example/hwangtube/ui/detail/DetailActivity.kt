@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.hwangtube.data.model.ListItem
+import com.example.hwangtube.data.model.youtube.ListItem
 import com.example.hwangtube.databinding.ActivityDetailBinding
 
 const val EXTRA_VIDEO = "EXTRA_VIDEO"

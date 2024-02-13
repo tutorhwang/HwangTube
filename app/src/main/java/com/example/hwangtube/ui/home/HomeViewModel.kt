@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
-import com.example.hwangtube.data.model.Item
-import com.example.hwangtube.data.model.ListItem
-import com.example.hwangtube.data.model.toVideoItem
+import com.example.hwangtube.data.model.youtube.Item
+import com.example.hwangtube.data.model.youtube.ListItem
+import com.example.hwangtube.data.model.youtube.toVideoItem
 import com.example.hwangtube.data.repository.YoutubeRepository
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
