@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     private val binding get() = _binding!!
 
     private val tabTitles =
-        listOf(R.string.title_home, R.string.title_favorite)
+        listOf(R.string.title_home, R.string.title_recommend, R.string.title_favorite)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
