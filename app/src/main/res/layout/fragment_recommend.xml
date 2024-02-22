@@ -16,6 +16,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/title_recommend" />
 
+    <ImageView
+        android:id="@+id/button_refresh"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="20dp"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:src="@drawable/ic_refresh_24"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:backgroundTint="@color/favorite_on"
+        android:clipToOutline="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <TextView
+            android:id="@+id/tv_response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:textColor="@color/white" />
+    </ScrollView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="0dp"
@@ -24,8 +56,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:spanCount="3"
+        app:layout_constraintTop_toBottomOf="@id/scroll"
+        app:spanCount="2"
         tools:itemCount="8"
         tools:listitem="@layout/favorite_item_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

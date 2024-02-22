@@ -8,4 +8,8 @@ class YoutubeRepository {
     suspend fun getTrendingVideos(region: String) = withContext(Dispatchers.IO) {
         RetrofitInstance.youtubeApi.getTrendingVideos(regionCode = region).items
     }
+
+    suspend fun searchChannels(channelName: String) = withContext(Dispatchers.IO) {
+        RetrofitInstance.youtubeApi.searchChannels(query = channelName)
+    }
 }

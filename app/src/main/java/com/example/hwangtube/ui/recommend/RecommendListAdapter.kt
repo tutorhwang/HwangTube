@@ -6,22 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.hwangtube.data.model.youtube.ListItem
 import com.example.hwangtube.databinding.FavoriteItemLayoutBinding
-
 class RecommendListAdapter() :
-    ListAdapter<String, RecommendListAdapter.VideoItemHolder>(object :
-        DiffUtil.ItemCallback<String>() {
-        override fun areItemsTheSame(
-            oldItem: String,
-            newItem: String
-        ): Boolean {
-            return oldItem == newItem
+    ListAdapter<ListItem.VideoItem, RecommendListAdapter.VideoItemHolder>(object :
+        DiffUtil.ItemCallback<ListItem.VideoItem>() {
+        override fun areItemsTheSame(oldItem: ListItem.VideoItem, newItem: ListItem.VideoItem): Boolean {
+            return oldItem.thumbnail == newItem.thumbnail
         }
 
-        override fun areContentsTheSame(
-            oldItem: String,
-            newItem: String
-        ): Boolean {
+        override fun areContentsTheSame(oldItem: ListItem.VideoItem, newItem: ListItem.VideoItem): Boolean {
             return oldItem == newItem
         }
     }) {
@@ -43,9 +38,15 @@ class RecommendListAdapter() :
     inner class VideoItemHolder(binding: FavoriteItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val channelNameView = binding.channelName
+        private val titleView = binding.title
+        private val thumbnailView = binding.mainImage
 
-        fun bind(video: String) {
-            channelNameView.text = video
+        fun bind(video: ListItem.VideoItem) {
+            with(video) {
+                Glide.with(itemView).load(thumbnail).into(thumbnailView)
+                titleView.text = title
+                channelNameView.text = channelTitle
+            }
         }
     }
 }
